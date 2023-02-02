@@ -1,0 +1,8 @@
+.gameHeader-container {
+  display: flex;
+  justify-content: space-around;
+  background: pink;
+}
+.timer {
+  width: 5rem;
+}
