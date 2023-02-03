@@ -6,8 +6,7 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- move Timer to its own module
-- start Firebase project
+- start working on image click behavior
 
 #### TODO LATER
 
@@ -22,6 +21,11 @@ Scour the images and see how fast you can find all the listed objects, then subm
 - add credit
 
 #### DONE
+
+_0.1.1_
+
+- move Timer to its own module
+- start Firebase projec
 
 _0.1.0_
 
