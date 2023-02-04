@@ -1,3 +1,49 @@
 .gameImg-container {
   background: lightgreen;
 }
+.gameImg {
+  position: relative;
+  width: 100%;
+}
+.gameImg-selection {
+  --length: 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--length);
+  height: var(--length);
+  border: 3px dashed black;
+  border-radius: 10rem;
+  background: rgb(255, 255, 255, 0.6);
+}
+@media only screen and (min-width: 500px) {
+  .gameImg-selection {
+    --length: 10rem;
+    border-width: 5px;
+  }
+}
+.gameImg-dropdownContainer {
+  position: absolute;
+  top: 0;
+  left: 0rem;
+  padding: 0.3rem;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: white;
+  border: 3px solid red;
+}
+.gameImg-dropdownItem {
+  padding: 0.3rem;
+  background: darkgrey;
+  cursor: pointer;
+}
+.gameImg-dropdownItem:active {
+  background: lightgrey;
+}
+@media (hover: hover) {
+  .gameImg-dropdownItem:hover {
+    background: lightgrey;
+  }
+}
