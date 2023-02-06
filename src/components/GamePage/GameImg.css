@@ -27,7 +27,7 @@
   top: 0;
   left: 0rem;
   padding: 0.3rem;
-  width: max-content;
+  width: 150px;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;

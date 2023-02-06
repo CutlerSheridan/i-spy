@@ -16,6 +16,7 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 ##### Behavior
 
+- ? adjust getDropdownCoords() so dropdownWidth can be variable
 - ? add Start pop-up so you can choose when to start the timer
 
 ##### Style
@@ -23,6 +24,10 @@ Scour the images and see how fast you can find all the listed objects, then subm
 - add credit
 
 #### DONE
+
+_0.2.1_
+
+- expand getDropdownCoords to check which side of selection dropdown should go on
 
 _0.2.0_
 

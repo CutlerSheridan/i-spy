@@ -25,7 +25,7 @@ const GameImg = (props) => {
     selectionElement.classList.remove('hidden');
     dropdownElement.classList.remove('hidden');
     // add event listener to body that hides selection
-    console.log(imageCoords);
+    // console.log(imageCoords);
   };
 
   const createImageElement = (gameId) => {
