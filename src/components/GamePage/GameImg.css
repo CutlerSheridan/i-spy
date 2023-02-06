@@ -47,3 +47,6 @@
     background: lightgrey;
   }
 }
+.hidden {
+  visibility: hidden;
+}

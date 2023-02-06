@@ -6,13 +6,14 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- write check to see if choice is within bounds of selected object
+- dismiss dropdown after guessing
 
 #### TODO LATER
 
 ##### Features
 
-- make selection appear/disappear when clicking on image/outside selection
+- make correct guess display box around guessed item
+- make correct guess check if all items have been found
 
 ##### Behavior
 
@@ -24,6 +25,17 @@ Scour the images and see how fast you can find all the listed objects, then subm
 - add credit
 
 #### DONE
+
+_0.2.2_
+
+- write logic to convert item's stored location bounds from % into ints
+- write check to see if guess is within given item's bounds
+- make selection appear/disappear when clicking on image/outside selection
+- make dropdown selection execute guess
+- change header item status if guess is correct
+- add more practice items
+- make dropdown menu only show unfound items
+- only render dropdown menu if there's at least one unfound item
 
 _0.2.1_
 

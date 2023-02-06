@@ -14,18 +14,19 @@ const getSelectionCoords = (e, selectionWidth) => {
 const getDropdownCoords = (e, selectionWidth) => {
   const pageCoords = getPageCoords(e);
   const imgWidth = e.target.width;
-  // const dropdownElement = document.querySelector('.gameImg-dropdownContainer');
   const dropdownWidth = 150;
   let xCoord = pageCoords.x + selectionWidth / 2;
   if (xCoord + dropdownWidth >= imgWidth) {
     xCoord = pageCoords.x - selectionWidth / 2 - dropdownWidth;
   }
-  console.log('clickedCoords');
-  console.log(pageCoords);
-  console.log('dropdown left start');
-  console.log(xCoord);
+  // console.log('clickedCoords');
+  // console.log(pageCoords);
+  console.log('image spot clicked');
+  console.log(getImageCoords(e));
   console.log('img width');
   console.log(imgWidth);
+  console.log('img height');
+  console.log(e.target.height);
   return {
     x: xCoord,
     y: pageCoords.y - selectionWidth / 2,
@@ -37,5 +38,36 @@ const getPageCoords = (e) => {
     y: e.pageY,
   };
 };
+const checkGuess = (guess, item, imageSize) => {
+  const itemBounds = getRenderedItemCoords(item, imageSize);
+  if (
+    guess.x < itemBounds.xBounds.lower ||
+    guess.y < itemBounds.yBounds.lower ||
+    guess.x > itemBounds.xBounds.upper ||
+    guess.y > itemBounds.yBounds.upper
+  ) {
+    return false;
+  }
+  return true;
+};
+const getRenderedItemCoords = (item, imageSize) => {
+  const { width, height } = imageSize;
+  return {
+    xBounds: {
+      lower: (item.xBounds.lowerPercent * width) / 100,
+      upper: (item.xBounds.upperPercent * width) / 100,
+    },
+    yBounds: {
+      lower: (item.yBounds.lowerPercent * height) / 100,
+      upper: (item.yBounds.upperPercent * height) / 100,
+    },
+  };
+};
 
-export { getImageCoords, getSelectionCoords, getDropdownCoords };
+export {
+  getImageCoords,
+  getSelectionCoords,
+  getDropdownCoords,
+  getRenderedItemCoords,
+  checkGuess,
+};

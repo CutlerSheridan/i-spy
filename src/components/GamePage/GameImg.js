@@ -1,31 +1,48 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './GameImg.css';
 import * as Controller from '../../Controller';
 
 const GameImg = (props) => {
-  const { gameId, gameItems, playerTime, updatePlayerTime } = props;
+  const { gameId, gameItems, changeItemToFound, playerTime, updatePlayerTime } =
+    props;
+  const [imageDimensions, setImageDimensions] = useState({});
+  const [spotGuessedOnImage, setSpotGuessedOnImage] = useState({});
   useEffect(() => {
     const imageElement = document.querySelector('.gameImg');
     imageElement.addEventListener('click', imageClickListener);
   }, []);
 
   const imageClickListener = (e) => {
-    const imageCoords = Controller.getImageCoords(e);
+    setImageDimensions({ width: e.target.width, height: e.target.height });
     const selectionElement = document.querySelector('.gameImg-selection');
     const selectionWidth = selectionElement.offsetWidth;
     const selectionCoords = Controller.getSelectionCoords(e, selectionWidth);
     selectionElement.style.top = selectionCoords.y + 'px';
     selectionElement.style.left = selectionCoords.x + 'px';
+    setSpotGuessedOnImage(Controller.getImageCoords(e));
+    selectionElement.classList.toggle('hidden');
+
     const dropdownElement = document.querySelector(
       '.gameImg-dropdownContainer'
     );
-    const dropdownCoords = Controller.getDropdownCoords(e, selectionWidth);
-    dropdownElement.style.top = dropdownCoords.y + 'px';
-    dropdownElement.style.left = dropdownCoords.x + 'px';
-    selectionElement.classList.remove('hidden');
-    dropdownElement.classList.remove('hidden');
-    // add event listener to body that hides selection
-    // console.log(imageCoords);
+    if (dropdownElement) {
+      const dropdownCoords = Controller.getDropdownCoords(e, selectionWidth);
+      dropdownElement.style.top = dropdownCoords.y + 'px';
+      dropdownElement.style.left = dropdownCoords.x + 'px';
+      dropdownElement.classList.toggle('hidden');
+    }
+  };
+  const guess = (e) => {
+    const guessedItem = gameItems.find((x) => x.id === e.target.dataset.id);
+    const guessIsCorrect = Controller.checkGuess(
+      spotGuessedOnImage,
+      guessedItem,
+      imageDimensions
+    );
+    console.log(guessIsCorrect);
+    if (guessIsCorrect) {
+      changeItemToFound(guessedItem);
+    }
   };
 
   const createImageElement = (gameId) => {
@@ -33,15 +50,25 @@ const GameImg = (props) => {
     return imageElement;
   };
   const createSelectionDropdown = () => {
-    return (
-      <div className="gameImg-dropdownContainer">
-        {gameItems.map((item) => (
-          <div className="gameImg-dropdownItem" key={item.name}>
-            {item.name}
-          </div>
-        ))}
-      </div>
-    );
+    if (gameItems.some((x) => !x.isFound)) {
+      return (
+        <div className="gameImg-dropdownContainer hidden">
+          {gameItems
+            .filter((x) => !x.isFound)
+            .map((item) => (
+              <div
+                className="gameImg-dropdownItem"
+                data-id={item.id}
+                onClick={guess}
+                key={item.name}
+              >
+                {item.name}
+              </div>
+            ))}
+        </div>
+      );
+    }
+    return <></>;
   };
 
   // DATABASE FUNCS START
@@ -53,7 +80,7 @@ const GameImg = (props) => {
   return (
     <div className="gameImg-container">
       {createImageElement(gameId)}
-      <div className="gameImg-selection"></div>
+      <div className="gameImg-selection hidden"></div>
       {createSelectionDropdown()}
     </div>
   );
