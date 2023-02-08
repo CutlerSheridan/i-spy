@@ -53,8 +53,13 @@ const GamePage = () => {
     timer.start();
     setInterval(() => {
       updatePlayerTime(timer.getTimeString());
-    }, 1000);
+    }, 100);
   }, []);
+  useEffect(() => {
+    if (gameItems.every((x) => x.isFound)) {
+      timer.stop();
+    }
+  }, [gameItems]);
   const updatePlayerTime = (newTime) => {
     setPlayerTime(newTime);
   };
@@ -75,6 +80,7 @@ const GamePage = () => {
         gameItems={gameItems}
         changeItemToFound={changeItemToFound}
       />
+      {gameItems.every((x) => x.isFound) ? <div>test</div> : <></>}
     </div>
   );
 };

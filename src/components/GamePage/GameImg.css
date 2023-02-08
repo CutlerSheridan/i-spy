@@ -52,7 +52,8 @@
 }
 .gameImg-itemBox {
   position: absolute;
-  border: 3px dashed var(--clr-1);
+  border: 3px solid rgb(230, 230, 230);
+  border-radius: 0.3rem;
   /* background: rgb(70, 70, 70, 0.3); */
-  box-shadow: 0 0 1rem 0.3rem white;
+  box-shadow: 0 0 1.5rem 0.4rem var(--clr-1);
 }

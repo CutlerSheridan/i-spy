@@ -6,13 +6,14 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- dismiss dropdown after guessing
+- add win screen
 
 #### TODO LATER
 
 ##### Features
 
-- make correct guess check if all items have been found
+- add username prompt upon win
+- display top scores upon win
 
 ##### Behavior
 
@@ -24,6 +25,11 @@ Scour the images and see how fast you can find all the listed objects, then subm
 - add credit
 
 #### DONE
+
+_0.2.4_
+
+- dismiss selection + dropdown after guessing
+- stop timer if all items found
 
 _0.2.3_
 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './GameImg.css';
 import * as Controller from '../../Controller';
 
@@ -36,6 +36,16 @@ const GameImg = (props) => {
       dropdownElement.classList.toggle('hidden');
     }
   };
+  const dismissSelectionUponGuess = (e) => {
+    const selectionElement = document.querySelector('.gameImg-selection');
+    selectionElement.classList.toggle('hidden');
+    const dropdownElement = document.querySelector(
+      '.gameImg-dropdownContainer'
+    );
+    if (dropdownElement) {
+      dropdownElement.classList.toggle('hidden');
+    }
+  };
   const guess = (e) => {
     const guessedItem = gameItems.find((x) => x.id === e.target.dataset.id);
     const guessIsCorrect = Controller.checkGuess(
@@ -46,6 +56,7 @@ const GameImg = (props) => {
     if (guessIsCorrect) {
       changeItemToFound(guessedItem);
     }
+    dismissSelectionUponGuess(e);
   };
 
   const highlightFoundItem = () => {
