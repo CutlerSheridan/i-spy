@@ -12,7 +12,7 @@
   left: 0;
   width: var(--length);
   height: var(--length);
-  border: 3px dashed black;
+  border: 3px dashed var(--clr-1);
   border-radius: 10rem;
   background: rgb(255, 255, 255, 0.6);
 }
@@ -49,4 +49,10 @@
 }
 .hidden {
   visibility: hidden;
+}
+.gameImg-itemBox {
+  position: absolute;
+  border: 3px dashed var(--clr-1);
+  /* background: rgb(70, 70, 70, 0.3); */
+  box-shadow: 0 0 1rem 0.3rem white;
 }

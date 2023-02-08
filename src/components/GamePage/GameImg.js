@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import './GameImg.css';
 import * as Controller from '../../Controller';
 
@@ -10,6 +10,10 @@ const GameImg = (props) => {
   useEffect(() => {
     const imageElement = document.querySelector('.gameImg');
     imageElement.addEventListener('click', imageClickListener);
+    setImageDimensions({
+      width: imageElement.width,
+      height: imageElement.height,
+    });
   }, []);
 
   const imageClickListener = (e) => {
@@ -39,10 +43,38 @@ const GameImg = (props) => {
       guessedItem,
       imageDimensions
     );
-    console.log(guessIsCorrect);
     if (guessIsCorrect) {
       changeItemToFound(guessedItem);
     }
+  };
+
+  const highlightFoundItem = () => {
+    return (
+      <div className="gameImg-itemBoxesContainer">
+        {gameItems.map((x, index) => {
+          if (x.isFound) {
+            const bounds = Controller.getRenderedItemCoords(x, imageDimensions);
+            const headerElement = document.querySelector(
+              '.gameHeader-container'
+            );
+            bounds.yBounds.lower += headerElement.offsetHeight;
+            bounds.yBounds.upper += headerElement.offsetHeight;
+            return (
+              <div
+                className="gameImg-itemBox"
+                key={index}
+                style={{
+                  left: bounds.xBounds.lower,
+                  top: bounds.yBounds.lower,
+                  width: `${bounds.xBounds.upper - bounds.xBounds.lower}px`,
+                  height: `${bounds.yBounds.upper - bounds.yBounds.lower}px`,
+                }}
+              ></div>
+            );
+          }
+        })}
+      </div>
+    );
   };
 
   const createImageElement = (gameId) => {
@@ -82,6 +114,7 @@ const GameImg = (props) => {
       {createImageElement(gameId)}
       <div className="gameImg-selection hidden"></div>
       {createSelectionDropdown()}
+      {highlightFoundItem()}
     </div>
   );
 };

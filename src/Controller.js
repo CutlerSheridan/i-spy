@@ -21,12 +21,12 @@ const getDropdownCoords = (e, selectionWidth) => {
   }
   // console.log('clickedCoords');
   // console.log(pageCoords);
-  console.log('image spot clicked');
-  console.log(getImageCoords(e));
-  console.log('img width');
-  console.log(imgWidth);
-  console.log('img height');
-  console.log(e.target.height);
+  // console.log('image spot clicked');
+  // console.log(getImageCoords(e));
+  // console.log('img width');
+  // console.log(imgWidth);
+  // console.log('img height');
+  // console.log(e.target.height);
   return {
     x: xCoord,
     y: pageCoords.y - selectionWidth / 2,

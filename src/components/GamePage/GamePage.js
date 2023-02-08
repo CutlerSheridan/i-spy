@@ -15,7 +15,7 @@ const getItems = (gameId) => {
       // xBounds: [246, 354],
       // yBounds: [134, 242],
       xBounds: { lowerPercent: 20, upperPercent: 29 },
-      yBounds: { lowerPercent: 16, uppderPercent: 30 },
+      yBounds: { lowerPercent: 16, upperPercent: 30 },
       iconImgPath: '#',
     },
     {
@@ -26,14 +26,14 @@ const getItems = (gameId) => {
       yBounds: { lowerPercent: 49, upperPercent: 54 },
       iconImgPath: '#',
     },
-    // {
-    //   name: 'pink button',
-    //   // xBounds: [127, 161],
-    //   // yBounds: [697, 734],
-    //   xBounds: { lowerPercent: 10, upperPercent: 13 },
-    //   yBounds: { lowerPercent: 86, upperPercent: 90 },
-    //   iconImgPath: '#',
-    // },
+    {
+      name: 'pink button',
+      // xBounds: [127, 161],
+      // yBounds: [697, 734],
+      xBounds: { lowerPercent: 10, upperPercent: 13 },
+      yBounds: { lowerPercent: 86, upperPercent: 90 },
+      iconImgPath: '#',
+    },
   ];
 };
 // DATABASE FUNCS END

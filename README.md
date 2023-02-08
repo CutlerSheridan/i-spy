@@ -12,7 +12,6 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 ##### Features
 
-- make correct guess display box around guessed item
 - make correct guess check if all items have been found
 
 ##### Behavior
@@ -25,6 +24,10 @@ Scour the images and see how fast you can find all the listed objects, then subm
 - add credit
 
 #### DONE
+
+_0.2.3_
+
+- make correct guess display box around guessed item
 
 _0.2.2_
 
