@@ -6,14 +6,11 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- add win screen
+- integrate database
 
 #### TODO LATER
 
 ##### Features
-
-- add username prompt upon win
-- display top scores upon win
 
 ##### Behavior
 
@@ -25,6 +22,14 @@ Scour the images and see how fast you can find all the listed objects, then subm
 - add credit
 
 #### DONE
+
+_0.3.0_
+
+- make game header sticky
+- add win screen
+- add username prompt upon win
+- add loading screen while leaderboards load
+- display leaderboards screen once loaded
 
 _0.2.4_
 

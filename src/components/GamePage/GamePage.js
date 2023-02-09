@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import GameHeader from './GameHeader';
 import GameImg from './GameImg';
 import Timer from '../../Timer';
+import WinScreen from './WinScreen';
 
 // DATABASE FUNCS START
 const getItems = (gameId) => {
@@ -18,22 +19,22 @@ const getItems = (gameId) => {
       yBounds: { lowerPercent: 16, upperPercent: 30 },
       iconImgPath: '#',
     },
-    {
-      name: 'sideways "n"',
-      // xBounds: [1115, 1185],
-      // yBounds: [396, 440],
-      xBounds: { lowerPercent: 91, upperPercent: 97 },
-      yBounds: { lowerPercent: 49, upperPercent: 54 },
-      iconImgPath: '#',
-    },
-    {
-      name: 'pink button',
-      // xBounds: [127, 161],
-      // yBounds: [697, 734],
-      xBounds: { lowerPercent: 10, upperPercent: 13 },
-      yBounds: { lowerPercent: 86, upperPercent: 90 },
-      iconImgPath: '#',
-    },
+    // {
+    //   name: 'sideways "n"',
+    //   // xBounds: [1115, 1185],
+    //   // yBounds: [396, 440],
+    //   xBounds: { lowerPercent: 91, upperPercent: 97 },
+    //   yBounds: { lowerPercent: 49, upperPercent: 54 },
+    //   iconImgPath: '#',
+    // },
+    // {
+    //   name: 'pink button',
+    //   // xBounds: [127, 161],
+    //   // yBounds: [697, 734],
+    //   xBounds: { lowerPercent: 10, upperPercent: 13 },
+    //   yBounds: { lowerPercent: 86, upperPercent: 90 },
+    //   iconImgPath: '#',
+    // },
   ];
 };
 // DATABASE FUNCS END
@@ -80,7 +81,11 @@ const GamePage = () => {
         gameItems={gameItems}
         changeItemToFound={changeItemToFound}
       />
-      {gameItems.every((x) => x.isFound) ? <div>test</div> : <></>}
+      {gameItems.every((x) => x.isFound) ? (
+        <WinScreen playerTime={playerTime} />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
