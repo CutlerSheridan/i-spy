@@ -23,6 +23,10 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### DONE
 
+_0.3.1_
+
+- implement item fetching from db
+
 _0.3.0_
 
 - make game header sticky

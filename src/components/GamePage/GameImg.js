@@ -116,7 +116,7 @@ const GameImg = (props) => {
 
   // DATABASE FUNCS START
   const getImage = (gameId) => {
-    return <img className="gameImg" src={require('../../images/pic1.jpg')} />;
+    return <img className="gameImg" src={require('../../images/game1.jpg')} />;
   };
   // DATABASE FUNCS END
 
