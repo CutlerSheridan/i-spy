@@ -2,11 +2,11 @@ import { initializeApp } from 'firebase/app';
 import {
   getFirestore,
   getDocs,
-  getDoc,
-  setDoc,
+  addDoc,
   doc,
   collection,
   query,
+  orderBy,
 } from 'firebase/firestore/lite';
 
 // Your web app's Firebase configuration
@@ -22,11 +22,26 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export const getItems = async (gameId) => {
+const getItems = async (gameId) => {
   const querySnapshot = await getDocs(collection(db, 'games', gameId, 'items'));
   const items = [];
   querySnapshot.forEach((doc) => items.push(doc.data()));
   return items;
+};
+const submitUser = async (gameId, name, time) => {
+  const docRef = await addDoc(collection(db, 'games', gameId, 'leaderboard'), {
+    name,
+    time,
+  });
+  return { docRef: docRef.id, gameId };
+};
+const getLeaderboard = async (gameId) => {
+  const querySnapshot = await getDocs(
+    query(collection(db, 'games', gameId, 'leaderboard'), orderBy('time'))
+  );
+  const leaderboard = [];
+  querySnapshot.forEach((x) => leaderboard.push({ ...x.data(), id: x.id }));
+  return leaderboard;
 };
 
 const items = [
@@ -57,3 +72,5 @@ const items = [
   //   iconImgPath: '#',
   // },
 ];
+
+export { getItems, submitUser, getLeaderboard };

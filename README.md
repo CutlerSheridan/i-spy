@@ -6,7 +6,7 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- integrate database
+- get leaderboard to display once loaded
 
 #### TODO LATER
 
@@ -14,6 +14,7 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 ##### Behavior
 
+- make user input autofocus
 - ? adjust getDropdownCoords() so dropdownWidth can be variable
 - ? add Start pop-up so you can choose when to start the timer
 
@@ -22,6 +23,12 @@ Scour the images and see how fast you can find all the listed objects, then subm
 - add credit
 
 #### DONE
+
+_0.3.2_
+
+- allow user submission to db
+- get leaderboard from db
+- get rank from leaderboard
 
 _0.3.1_
 

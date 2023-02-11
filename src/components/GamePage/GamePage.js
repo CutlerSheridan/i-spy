@@ -53,7 +53,7 @@ const GamePage = () => {
         changeItemToFound={changeItemToFound}
       />
       {gameItems.every((x) => x.isFound) ? (
-        <WinScreen playerTime={playerTime} />
+        <WinScreen gameId={gameId} playerTime={playerTime} />
       ) : (
         <></>
       )}

@@ -1,39 +1,32 @@
 import './WinScreen.css';
 import { useState } from 'react';
+import { submitUser, getLeaderboard } from '../../FirebaseController';
 
 // DATABASE FUNCS START
-const uploadName = async (name, time) => {
-  // upload name and time to this game's leaderboards
-  return new Promise((resolve) =>
-    setTimeout(() => {
-      console.log(`uploaded name ${name} and time ${time}`);
-      resolve();
-    }, 1000)
-  );
-};
-const getLeaderboards = async () => {
-  return new Promise((resolve) =>
-    setTimeout(() => {
-      console.log(`collected leaderboards`);
-      resolve();
-    }, 1000)
-  );
-};
-const getRank = async () => {
-  return new Promise((resolve) =>
-    setTimeout(() => {
-      console.log('got rank');
-      resolve(15);
-    })
-  );
-};
+// const submitUser = async (name, time) => {
+//   // upload name and time to this game's leaderboard
+//   return new Promise((resolve) =>
+//     setTimeout(() => {
+//       console.log(`uploaded name ${name} and time ${time}`);
+//       resolve();
+//     }, 1000)
+//   );
+// };
+// const getLeaderboard = async (docRef) => {
+//   return new Promise((resolve) =>
+//     setTimeout(() => {
+//       console.log(`collected leaderboard`);
+//       resolve(docRef);
+//     }, 1000)
+//   );
+// };
 // DATABASE FUNCS END
 
 const WinScreen = (props) => {
-  const { playerTime } = props;
+  const { gameId, playerTime } = props;
   const [name, setName] = useState('');
   const [nameIsSubmitted, setNameIsSubmitted] = useState(-1);
-  const [leaderboardRank, setLeaderboardRank] = useState(-1);
+  const [rank, setRank] = useState(-1);
 
   const populateWinScreen = () => {
     switch (nameIsSubmitted) {
@@ -42,7 +35,7 @@ const WinScreen = (props) => {
       case 0:
         return createLoadingScreen();
       case 1:
-        return createLeaderboards();
+        return createLeaderboard();
     }
   };
   const createNameInput = () => {
@@ -73,11 +66,14 @@ const WinScreen = (props) => {
     e.preventDefault();
     setNameIsSubmitted(0);
     console.log('start of handle submission');
-    uploadName(name, playerTime)
-      .then(getLeaderboards)
-      .then(getRank)
+    let userRef;
+    submitUser(gameId, name, playerTime)
       .then((result) => {
-        setLeaderboardRank(result);
+        userRef = result.docRef;
+        return getLeaderboard(result.gameId);
+      })
+      .then((result) => {
+        setRank(result.findIndex((x) => x.id === userRef));
         setNameIsSubmitted(1);
         console.log('end of handle name submission');
       });
@@ -89,11 +85,11 @@ const WinScreen = (props) => {
       </div>
     );
   };
-  const createLeaderboards = () => {
+  const createLeaderboard = () => {
     return (
-      <div className="leaderboards-outerContainer">
-        <h2 className="leaderboards-heading">
-          Congrats {name}, you ranked {leaderboardRank}th!{' '}
+      <div className="leaderboard-outerContainer">
+        <h2 className="leaderboard-heading">
+          Congrats {name}, you ranked {rank}th!{' '}
         </h2>
       </div>
     );
