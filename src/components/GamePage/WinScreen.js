@@ -45,16 +45,18 @@ const WinScreen = (props) => {
       <form className="name-container">
         <h2>You won!</h2>
         <h3>Time: {playerTime}</h3>
-        <label className="name-label" htmlFor="name-input">
-          Enter a username:
-        </label>
-        <input
-          className="name-input"
-          id="name-input"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-          autoFocus
-        />
+        <div className="name-inputGroup">
+          <label className="name-label" htmlFor="name-input">
+            Enter a name:
+          </label>
+          <input
+            className="name-input"
+            id="name-input"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            autoFocus
+          />
+        </div>
         <button
           type="submit"
           className="name-submit"
@@ -93,9 +95,7 @@ const WinScreen = (props) => {
   const createLeaderboard = () => {
     return (
       <div className="leaderboard-outerContainer">
-        <h2 className="leaderboard-heading">
-          Congrats {name}, you ranked {rank}th!{' '}
-        </h2>
+        <h2 className="leaderboard-heading">You ranked {rank}th! </h2>
         <div className="leaderboard-innerContainer">
           {leaderboard.map((x) => (
             <div
@@ -116,7 +116,13 @@ const WinScreen = (props) => {
 
   return (
     <div className="win-outerContainer">
-      <div className="win-innerContainer">{populateWinScreen()}</div>
+      <div
+        className={`win-innerContainer ${
+          nameIsSubmitted === 1 ? 'win-innerContainer-showingLeaderboard' : ''
+        }`}
+      >
+        {populateWinScreen()}
+      </div>
     </div>
   );
 };

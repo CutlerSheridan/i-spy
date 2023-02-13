@@ -1,9 +1,11 @@
 :root {
   --clr-1: rgb(25, 25, 25);
+  --clr-1-light: rgb(50, 50, 50);
   --clr-2: rgb(240, 240, 240);
   --clr-3: darkgrey;
   --clr-3-light: lightgrey;
   font-size: 62.5%;
+  background: var(--clr-1);
 }
 * {
   margin: 0;

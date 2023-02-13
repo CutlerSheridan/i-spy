@@ -6,7 +6,7 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- style winScreen
+- style results loading screen
 
 #### TODO LATER
 
@@ -19,17 +19,26 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 ##### Behavior
 
+- ? change ranks to skip to actual place instead of next number (1, 1, 3 instead of 1, 1, 2);
 - make sure that longer lists display selection dropdown in the correct spot
 - ? adjust getDropdownCoords() so dropdownWidth can be variable
 - ? add Start pop-up so you can choose when to start the timer
 
 ##### Style
 
-- checker the leaderboard results
+- choose fonts
 - style homescreen
 - add credit
 
 #### DONE
+
+_0.4.3_
+
+- style name input screen
+- style leaderboard screen
+- checker the leaderboard results
+- space leaderboard results better
+- style current user's result
 
 _0.4.2_
 

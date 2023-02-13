@@ -10,29 +10,119 @@
   background: transparent;
 }
 .win-innerContainer {
+  padding: 1.5rem;
   width: 50%;
-  height: 50%;
-  background: purple;
+  min-height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--clr-1);
+  border-radius: 0.5rem;
+  color: var(--clr-2);
+}
+.win-innerContainer-showingLeaderboard {
+  height: 55%;
 }
 
+/* NAME INPUT SCREEN START */
+.name-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.name-container > h2 {
+  font-size: 3.5rem;
+}
+.name-container > h3 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.name-inputGroup {
+  margin: 0.5rem 0 1.3rem 0;
+}
+@media only screen and (min-width: 800px) {
+  .name-container > h2 {
+    font-size: 8rem;
+  }
+  .name-container > h3 {
+    font-size: 4rem;
+    margin-bottom: 4.5rem;
+  }
+  .name-inputGroup {
+    margin: 0rem 0 2rem 0;
+    font-size: 2.7rem;
+  }
+}
+.name-label {
+  margin-right: 1rem;
+}
+.name-submit {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--clr-2);
+  color: var(--clr-1);
+  cursor: pointer;
+}
+.name-submit:active {
+  background: var(--clr-3);
+}
+@media (hover: hover) {
+  .name-submit:hover {
+    background: var(--clr-3);
+  }
+  .name-submit:active {
+    background: var(--clr-2);
+  }
+}
+/* NAME INPUT SCREEN END */
+
+/* LOADING SCREEN START */
+/* LOADING SCREEN END */
+
+/* LEADERBOARD SCREEN START */
 .leaderboard-outerContainer {
   height: 100%;
   overflow-y: auto;
 }
 .leaderboard-heading {
+  /* margin: 1rem 0; */
+  padding-bottom: 1rem;
   position: sticky;
   top: 0;
+  font-size: 2.3rem;
   text-align: center;
-  background: lightblue;
+  background: var(--clr-1);
+  box-shadow: 0 0 0.7rem 0.3rem var(--clr-1);
+}
+.leaderboard-innerContainer .leaderboard-entryGroup:nth-child(odd) {
+  background: var(--clr-1-light);
 }
 .leaderboard-entryGroup {
-  margin: 0 30%;
+  margin: 0 5%;
+  padding: 0.3rem 0.5rem;
+  max-width: 50rem;
   display: flex;
   justify-content: space-between;
+}
+@media only screen and (min-width: 800px) {
+  .leaderboard-heading {
+    font-size: 3rem;
+  }
+  .leaderboard-entryGroup {
+    margin: 0 30%;
+    padding: 0.3rem 1rem;
+  }
+}
+.leaderboard-name {
+  text-align: center;
 }
 .leaderboard-rank {
   width: 2rem;
 }
 .leaderboard-currentPlayer {
-  background: yellow;
+  background: var(--clr-3-light);
+  color: var(--clr-1);
 }
+/* LEADERBOARD SCREEN END */
