@@ -31,6 +31,10 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### DONE
 
+_0.4.1_
+
+- add media queries to item box box-shadow sizing
+
 _0.4.0_
 
 - make user input box autofocus
