@@ -27,6 +27,8 @@ const WinScreen = (props) => {
   const [name, setName] = useState('');
   const [nameIsSubmitted, setNameIsSubmitted] = useState(-1);
   const [rank, setRank] = useState(-1);
+  const [leaderboard, setLeaderboard] = useState([]);
+  const [userId, setUserId] = useState('');
 
   const populateWinScreen = () => {
     switch (nameIsSubmitted) {
@@ -69,11 +71,13 @@ const WinScreen = (props) => {
     let userRef;
     submitUser(gameId, name, playerTime)
       .then((result) => {
-        userRef = result.docRef;
-        return getLeaderboard(result.gameId);
+        userRef = result;
+        setUserId(userRef);
+        return getLeaderboard(gameId);
       })
       .then((result) => {
-        setRank(result.findIndex((x) => x.id === userRef));
+        setRank(result.find((x) => x.id === userRef).rank);
+        setLeaderboard(result);
         setNameIsSubmitted(1);
         console.log('end of handle name submission');
       });
@@ -91,6 +95,20 @@ const WinScreen = (props) => {
         <h2 className="leaderboard-heading">
           Congrats {name}, you ranked {rank}th!{' '}
         </h2>
+        <div className="leaderboard-innerContainer">
+          {leaderboard.map((x) => (
+            <div
+              className={`leaderboard-entryGroup ${
+                x.id === userId ? 'leaderboard-currentPlayer' : ''
+              }`}
+              key={x.id}
+            >
+              <div className="leaderboard-rank">{x.rank}.</div>
+              <div className="leaderboard-name">{x.name}</div>
+              <div className="leaderboard-time">{x.time}</div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   };

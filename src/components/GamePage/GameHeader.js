@@ -9,8 +9,13 @@ const GameHeader = (props) => {
       <Link to="/">{'<'} Home</Link>
       <div className="gameHeader-itemsContainer">
         {gameItems.map((item) => (
-          <div className="gameHeader-item" key={item.name}>
-            {item.name}, {`${item.isFound}`}
+          <div
+            className={`gameHeader-item ${
+              item.isFound ? 'gameHeader-item-found' : 'gameHeader-item-unfound'
+            }`}
+            key={item.name}
+          >
+            {item.name}
           </div>
         ))}
       </div>

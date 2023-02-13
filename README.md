@@ -6,23 +6,37 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- get leaderboard to display once loaded
+- make user input box autofocus
+- style header
+- style winScreen
 
 #### TODO LATER
 
 ##### Features
 
+- add more items
+- add another picture
+
 ##### Behavior
 
-- make user input autofocus
 - ? adjust getDropdownCoords() so dropdownWidth can be variable
 - ? add Start pop-up so you can choose when to start the timer
 
 ##### Style
 
+- checker the leaderboard results
+- style homescreen
 - add credit
 
 #### DONE
+
+_0.3.3_
+
+- fix rank-checking algorithm to not start at 0
+- get leaderboard to display once loaded
+- add rank prop to score objects so players with same time will have same rank
+- highlight current player's score on leaderboard
+- make item names in gameHeader strike through when found
 
 _0.3.2_
 

@@ -33,14 +33,23 @@ const submitUser = async (gameId, name, time) => {
     name,
     time,
   });
-  return { docRef: docRef.id, gameId };
+  return docRef.id;
 };
 const getLeaderboard = async (gameId) => {
   const querySnapshot = await getDocs(
     query(collection(db, 'games', gameId, 'leaderboard'), orderBy('time'))
   );
   const leaderboard = [];
-  querySnapshot.forEach((x) => leaderboard.push({ ...x.data(), id: x.id }));
+  let rank = 0;
+  let currentScore;
+  querySnapshot.forEach((x) => {
+    const scoreObj = x.data();
+    if (scoreObj.time !== currentScore) {
+      rank++;
+      currentScore = scoreObj.time;
+    }
+    leaderboard.push({ ...scoreObj, id: x.id, rank });
+  });
   return leaderboard;
 };
 

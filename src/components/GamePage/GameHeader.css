@@ -6,6 +6,9 @@
   background: pink;
   z-index: 2;
 }
+.gameHeader-item-found {
+  text-decoration: line-through;
+}
 .timer {
   width: 5rem;
 }
