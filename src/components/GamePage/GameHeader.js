@@ -11,14 +11,17 @@ const GameHeader = (props) => {
       </Link>
       <div className="gameHeader-itemsContainer">
         {gameItems.map((item, index) => (
-          <div
-            className={`gameHeader-item ${
-              item.isFound ? 'gameHeader-item-found' : 'gameHeader-item-unfound'
-            }`}
-            key={item.name}
-          >
-            {item.name}
-            {index === gameItems.length - 1 ? '' : ', '}
+          <div className="gameHeader-itemGroup" key={item.name}>
+            <div
+              className={`gameHeader-item ${
+                item.isFound
+                  ? 'gameHeader-item-found'
+                  : 'gameHeader-item-unfound'
+              }`}
+            >
+              {item.name}
+            </div>
+            <div>{index === gameItems.length - 1 ? '' : ', '}</div>
           </div>
         ))}
       </div>

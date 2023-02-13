@@ -22,6 +22,9 @@
   gap: 0.5rem;
   white-space: pre;
 }
+.gameHeader-itemGroup {
+  display: flex;
+}
 .gameHeader-item {
   text-transform: capitalize;
 }

@@ -31,6 +31,10 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### DONE
 
+_0.4.2_
+
+- make strike in struck through item names not include the commas
+
 _0.4.1_
 
 - add media queries to item box box-shadow sizing
