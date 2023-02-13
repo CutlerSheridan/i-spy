@@ -22,12 +22,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const getItems = async (gameId) => {
-  const querySnapshot = await getDocs(collection(db, 'games', gameId, 'items'));
-  const items = [];
-  querySnapshot.forEach((doc) => items.push(doc.data()));
-  return items;
-};
+// const getItems = async (gameId) => {
+//   const querySnapshot = await getDocs(collection(db, 'games', gameId, 'items'));
+//   const items = [];
+//   querySnapshot.forEach((doc) => items.push(doc.data()));
+//   return items;
+// };
 const submitUser = async (gameId, name, time) => {
   const docRef = await addDoc(collection(db, 'games', gameId, 'leaderboard'), {
     name,
@@ -53,7 +53,7 @@ const getLeaderboard = async (gameId) => {
   return leaderboard;
 };
 
-const items = [
+const getItems = () => [
   {
     // img width: 1225
     // img height: 812
@@ -64,22 +64,22 @@ const items = [
     yBounds: { lowerPercent: 16, upperPercent: 30 },
     iconImgPath: '#',
   },
-  // {
-  //   name: 'sideways "n"',
-  //   // xBounds: [1115, 1185],
-  //   // yBounds: [396, 440],
-  //   xBounds: { lowerPercent: 91, upperPercent: 97 },
-  //   yBounds: { lowerPercent: 49, upperPercent: 54 },
-  //   iconImgPath: '#',
-  // },
-  // {
-  //   name: 'pink button',
-  //   // xBounds: [127, 161],
-  //   // yBounds: [697, 734],
-  //   xBounds: { lowerPercent: 10, upperPercent: 13 },
-  //   yBounds: { lowerPercent: 86, upperPercent: 90 },
-  //   iconImgPath: '#',
-  // },
+  {
+    name: 'sideways "n"',
+    // xBounds: [1115, 1185],
+    // yBounds: [396, 440],
+    xBounds: { lowerPercent: 91, upperPercent: 97 },
+    yBounds: { lowerPercent: 49, upperPercent: 54 },
+    iconImgPath: '#',
+  },
+  {
+    name: 'pink button',
+    // xBounds: [127, 161],
+    // yBounds: [697, 734],
+    xBounds: { lowerPercent: 10, upperPercent: 13 },
+    yBounds: { lowerPercent: 86, upperPercent: 90 },
+    iconImgPath: '#',
+  },
 ];
 
 export { getItems, submitUser, getLeaderboard };

@@ -1,5 +1,8 @@
 :root {
   --clr-1: rgb(25, 25, 25);
+  --clr-2: rgb(240, 240, 240);
+  --clr-3: darkgrey;
+  --clr-3-light: lightgrey;
   font-size: 62.5%;
 }
 * {
@@ -13,4 +16,11 @@ body {
   height: 100%;
   width: 100%;
   font-size: 2rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a {
+  color: var(--clr-2);
+  text-decoration: none;
+  border-bottom: 2px solid var(--clr-2);
 }

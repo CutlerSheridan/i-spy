@@ -1,14 +1,34 @@
 .gameHeader-container {
+  padding: 1rem;
   position: sticky;
   top: 0;
-  display: flex;
-  justify-content: space-around;
-  background: pink;
+  min-height: 7rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: var(--clr-1);
+  color: var(--clr-2);
+  box-shadow: 0 0 1rem 0.5rem var(--clr-1);
   z-index: 2;
+}
+.gameHeader-link,
+.gameHeader-timer {
+  margin: auto;
+}
+.gameHeader-itemsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  gap: 0.5rem;
+  white-space: pre;
+}
+.gameHeader-item {
+  text-transform: capitalize;
 }
 .gameHeader-item-found {
   text-decoration: line-through;
 }
-.timer {
-  width: 5rem;
+.gameHeader-timer {
+  width: 11rem;
+  white-space: pre;
 }

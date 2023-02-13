@@ -31,20 +31,25 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  background: white;
-  border: 3px solid red;
+  background: var(--clr-2);
+  border: 3px solid var(--clr-1);
+  border-radius: 0.5rem;
 }
 .gameImg-dropdownItem {
   padding: 0.3rem;
-  background: darkgrey;
+  text-transform: capitalize;
+  background: var(--clr-3);
   cursor: pointer;
 }
 .gameImg-dropdownItem:active {
-  background: lightgrey;
+  background: var(--clr-3-light);
 }
 @media (hover: hover) {
   .gameImg-dropdownItem:hover {
-    background: lightgrey;
+    background: var(--clr-3-light);
+  }
+  .gameImg-dropdownItem:active {
+    background: var(--clr-3);
   }
 }
 .hidden {
@@ -52,8 +57,7 @@
 }
 .gameImg-itemBox {
   position: absolute;
-  border: 3px solid rgb(230, 230, 230);
+  border: 3px solid var(--clr-1);
   border-radius: 0.3rem;
-  /* background: rgb(70, 70, 70, 0.3); */
-  box-shadow: 0 0 1.5rem 0.4rem var(--clr-1);
+  box-shadow: inset 0 0 1.5rem 0.4rem var(--clr-1), 0 0 1rem 0.2rem var(--clr-2);
 }

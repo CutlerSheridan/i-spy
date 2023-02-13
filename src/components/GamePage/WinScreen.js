@@ -53,6 +53,7 @@ const WinScreen = (props) => {
           id="name-input"
           onChange={(e) => setName(e.target.value)}
           value={name}
+          autoFocus
         />
         <button
           type="submit"

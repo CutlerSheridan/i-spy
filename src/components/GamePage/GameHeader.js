@@ -6,9 +6,11 @@ const GameHeader = (props) => {
 
   return (
     <div className="gameHeader-container">
-      <Link to="/">{'<'} Home</Link>
+      <Link className="gameHeader-link" to="/">
+        {'<'} Home
+      </Link>
       <div className="gameHeader-itemsContainer">
-        {gameItems.map((item) => (
+        {gameItems.map((item, index) => (
           <div
             className={`gameHeader-item ${
               item.isFound ? 'gameHeader-item-found' : 'gameHeader-item-unfound'
@@ -16,10 +18,14 @@ const GameHeader = (props) => {
             key={item.name}
           >
             {item.name}
+            {index === gameItems.length - 1 ? '' : ', '}
           </div>
         ))}
       </div>
-      <div className="timer">{playerTime}</div>
+      <div className="gameHeader-timer">
+        Timer:{'  '}
+        {playerTime}
+      </div>
     </div>
   );
 };

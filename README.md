@@ -6,8 +6,6 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- make user input box autofocus
-- style header
 - style winScreen
 
 #### TODO LATER
@@ -15,10 +13,13 @@ Scour the images and see how fast you can find all the listed objects, then subm
 ##### Features
 
 - add more items
+- swap higher res version of game image
 - add another picture
+- add pictures to Firebase cloud storage
 
 ##### Behavior
 
+- make sure that longer lists display selection dropdown in the correct spot
 - ? adjust getDropdownCoords() so dropdownWidth can be variable
 - ? add Start pop-up so you can choose when to start the timer
 
@@ -29,6 +30,15 @@ Scour the images and see how fast you can find all the listed objects, then subm
 - add credit
 
 #### DONE
+
+_0.4.0_
+
+- make user input box autofocus
+- make listed items able to display on same line
+- style gameHeader
+- add drop-shadow to gameHeader
+- style selection dropdown
+- adjust styling of found item boxes
 
 _0.3.3_
 
