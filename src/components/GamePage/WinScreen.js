@@ -3,23 +3,7 @@ import { useState } from 'react';
 import { submitUser, getLeaderboard } from '../../FirebaseController';
 
 // DATABASE FUNCS START
-// const submitUser = async (name, time) => {
-//   // upload name and time to this game's leaderboard
-//   return new Promise((resolve) =>
-//     setTimeout(() => {
-//       console.log(`uploaded name ${name} and time ${time}`);
-//       resolve();
-//     }, 1000)
-//   );
-// };
-// const getLeaderboard = async (docRef) => {
-//   return new Promise((resolve) =>
-//     setTimeout(() => {
-//       console.log(`collected leaderboard`);
-//       resolve(docRef);
-//     }, 1000)
-//   );
-// };
+
 // DATABASE FUNCS END
 
 const WinScreen = (props) => {
@@ -86,9 +70,12 @@ const WinScreen = (props) => {
       });
   };
   const createLoadingScreen = () => {
+    const LOADING_IMAGE_URL =
+      'https://upload.wikimedia.org/wikipedia/commons/a/ad/YouTube_loading_symbol_3_%28transparent%29.gif';
     return (
       <div className="loading-container">
-        <h2 className="loading">Loading</h2>
+        <h2 className="loading">Loading...</h2>
+        <img src={LOADING_IMAGE_URL} />
       </div>
     );
   };

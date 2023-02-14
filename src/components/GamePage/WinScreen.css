@@ -11,17 +11,27 @@
 }
 .win-innerContainer {
   padding: 1.5rem;
+  min-width: 25rem;
   width: 50%;
-  min-height: 50%;
+  max-width: 75rem;
+  min-height: 20rem;
+  height: 50%;
+  max-height: 50rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background: var(--clr-1);
   border-radius: 0.5rem;
   color: var(--clr-2);
+  border: 2px solid var(--clr-2);
 }
 .win-innerContainer-showingLeaderboard {
-  height: 55%;
+  /* height: 55%; */
+}
+@media only screen and (min-width: 500px) {
+  .win-innerContainer {
+    height: 55%;
+  }
 }
 
 /* NAME INPUT SCREEN START */
@@ -39,14 +49,15 @@
 }
 .name-inputGroup {
   margin: 0.5rem 0 1.3rem 0;
+  text-align: center;
 }
 @media only screen and (min-width: 800px) {
   .name-container > h2 {
-    font-size: 8rem;
+    font-size: 7rem;
   }
   .name-container > h3 {
     font-size: 4rem;
-    margin-bottom: 4.5rem;
+    margin-bottom: 5.5rem;
   }
   .name-inputGroup {
     margin: 0rem 0 2rem 0;
@@ -79,6 +90,26 @@
 /* NAME INPUT SCREEN END */
 
 /* LOADING SCREEN START */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.loading {
+  text-align: center;
+  font-size: 3.3rem;
+}
+.loading-container > img {
+  object-fit: contain;
+  width: 3.5rem;
+}
+@media only screen and (min-width: 800px) {
+  .loading {
+    font-size: 4rem;
+  }
+  .loading-container > img {
+  }
+}
 /* LOADING SCREEN END */
 
 /* LEADERBOARD SCREEN START */
@@ -96,7 +127,8 @@
   background: var(--clr-1);
   box-shadow: 0 0 0.7rem 0.3rem var(--clr-1);
 }
-.leaderboard-innerContainer .leaderboard-entryGroup:nth-child(odd) {
+.leaderboard-innerContainer
+  .leaderboard-entryGroup:nth-child(odd):not(.leaderboard-currentPlayer) {
   background: var(--clr-1-light);
 }
 .leaderboard-entryGroup {

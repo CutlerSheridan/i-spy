@@ -6,7 +6,7 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- style results loading screen
+- fix rank -st / -nd / -rd / -th
 
 #### TODO LATER
 
@@ -26,11 +26,20 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 ##### Style
 
+- fix score submit screen on portrait mobile
+- figure out how to get rid of green line after image
 - choose fonts
 - style homescreen
 - add credit
 
 #### DONE
+
+_0.4.4_
+
+- style loading screen
+- add loading gif
+- add min-/max- width and max height to winScreen
+- adjust item box box-shadows
 
 _0.4.3_
 
