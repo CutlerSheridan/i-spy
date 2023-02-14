@@ -38,6 +38,8 @@ const WinScreen = (props) => {
             id="name-input"
             onChange={(e) => setName(e.target.value)}
             value={name}
+            maxLength="16"
+            autoCapitalize="on"
             autoFocus
           />
         </div>
@@ -82,7 +84,9 @@ const WinScreen = (props) => {
   const createLeaderboard = () => {
     return (
       <div className="leaderboard-outerContainer">
-        <h2 className="leaderboard-heading">You ranked {rank}th! </h2>
+        <h2 className="leaderboard-heading">
+          You ranked {getRankSuffix(rank)}!{' '}
+        </h2>
         <div className="leaderboard-innerContainer">
           {leaderboard.map((x) => (
             <div
@@ -112,6 +116,30 @@ const WinScreen = (props) => {
       </div>
     </div>
   );
+};
+
+export const getRankSuffix = (number) => {
+  let stringRank = `${number}`;
+  let suffix;
+  if (stringRank.length > 1 && stringRank.slice(-2, -1) === '1') {
+    suffix = 'th';
+  } else {
+    switch (stringRank.slice(-1)) {
+      case '1':
+        suffix = 'st';
+        break;
+      case '2':
+        suffix = 'nd';
+        break;
+      case '3':
+        suffix = 'rd';
+        break;
+      default:
+        suffix = 'th';
+        break;
+    }
+  }
+  return stringRank + suffix;
 };
 
 export default WinScreen;

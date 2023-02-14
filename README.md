@@ -6,33 +6,39 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- fix rank -st / -nd / -rd / -th
+- swap higher res version of game image
+- add more items
 
 #### TODO LATER
 
 ##### Features
 
-- add more items
-- swap higher res version of game image
 - add another picture
 - add pictures to Firebase cloud storage
 
 ##### Behavior
 
-- ? change ranks to skip to actual place instead of next number (1, 1, 3 instead of 1, 1, 2);
 - make sure that longer lists display selection dropdown in the correct spot
 - ? adjust getDropdownCoords() so dropdownWidth can be variable
 - ? add Start pop-up so you can choose when to start the timer
 
 ##### Style
 
-- fix score submit screen on portrait mobile
 - figure out how to get rid of green line after image
 - choose fonts
 - style homescreen
 - add credit
 
 #### DONE
+
+_0.4.5_
+
+- fix rank suffixes
+- test rank suffix func
+- change ranks to skip to actual place instead of next number (1, 1, 3 instead of 1, 1, 2);
+- fix winScreen on mobile portrait
+- adjust spacing of rank / name / time
+- make bottom of leaderboard list fade like top
 
 _0.4.4_
 

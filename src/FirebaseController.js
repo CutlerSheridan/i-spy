@@ -28,32 +28,32 @@ const db = getFirestore(app);
 //   querySnapshot.forEach((doc) => items.push(doc.data()));
 //   return items;
 // };
-// const submitUser = async (gameId, name, time) => {
-//   const docRef = await addDoc(collection(db, 'games', gameId, 'leaderboard'), {
-//     name,
-//     time,
-//   });
-//   return docRef.id;
-// };
-// const getLeaderboard = async (gameId) => {
-//   const querySnapshot = await getDocs(
-//     query(collection(db, 'games', gameId, 'leaderboard'), orderBy('time'))
-//   );
-//   const leaderboard = [];
-//   let rank = 0;
-//   let currentScore;
-//   querySnapshot.forEach((x) => {
-//     const scoreObj = x.data();
-//     if (scoreObj.time !== currentScore) {
-//       rank++;
-//       currentScore = scoreObj.time;
-//     }
-//     leaderboard.push({ ...scoreObj, id: x.id, rank });
-//   });
-//   return leaderboard;
-// };
+const submitUser = async (gameId, name, time) => {
+  const docRef = await addDoc(collection(db, 'games', gameId, 'leaderboard'), {
+    name,
+    time,
+  });
+  return docRef.id;
+};
+const getLeaderboard = async (gameId) => {
+  const querySnapshot = await getDocs(
+    query(collection(db, 'games', gameId, 'leaderboard'), orderBy('time'))
+  );
+  const leaderboard = [];
+  let rank = 0;
+  let currentScore;
+  querySnapshot.forEach((x, index) => {
+    const scoreObj = x.data();
+    if (scoreObj.time !== currentScore) {
+      rank = index + 1;
+      currentScore = scoreObj.time;
+    }
+    leaderboard.push({ ...scoreObj, id: x.id, rank });
+  });
+  return leaderboard;
+};
 
-// MOCKS FOR TESTING
+// MOCKS FOR TESTING START
 const getItems = () => [
   {
     // img width: 1225
@@ -82,25 +82,26 @@ const getItems = () => [
   //   iconImgPath: '#',
   // },
 ];
-const submitUser = async (gameId, name, time) => {
-  // upload name and time to this game's leaderboard
-  return Promise.resolve('fjoewa42402940');
-};
-const getLeaderboard = async (gameId) => {
-  return Promise.resolve([
-    {
-      name: 'cutler',
-      time: '0:05',
-      id: 'fjoewa42402940',
-      rank: 1,
-    },
-    {
-      name: 'tyler',
-      time: '0:10',
-      id: 'o2424jfw090gJ',
-      rank: 2,
-    },
-  ]);
-};
+// const submitUser = async (gameId, name, time) => {
+//   // upload name and time to this game's leaderboard
+//   return Promise.resolve('fjoewa42402940');
+// };
+// const getLeaderboard = async (gameId) => {
+//   return Promise.resolve([
+//     {
+//       name: 'cutler',
+//       time: '0:05',
+//       id: 'fjoewa42402940',
+//       rank: 1,
+//     },
+//     {
+//       name: 'tyler',
+//       time: '0:10',
+//       id: 'o2424jfw090gJ',
+//       rank: 2,
+//     },
+//   ]);
+// };
+// MOCKS FOR TESTING END
 
 export { getItems, submitUser, getLeaderboard };
