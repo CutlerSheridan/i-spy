@@ -54,34 +54,45 @@ const getLeaderboard = async (gameId) => {
 };
 
 // MOCKS FOR TESTING START
-const getItems = () => [
-  {
-    // img width: 1225
-    // img height: 812
-    name: 'octopus',
-    // xBounds: [246, 354],
-    // yBounds: [134, 242],
-    xBounds: { lowerPercent: 20, upperPercent: 29 },
-    yBounds: { lowerPercent: 16, upperPercent: 30 },
-    iconImgPath: '#',
-  },
-  {
-    name: 'sideways "n"',
-    // xBounds: [1115, 1185],
-    // yBounds: [396, 440],
-    xBounds: { lowerPercent: 91, upperPercent: 97 },
-    yBounds: { lowerPercent: 49, upperPercent: 54 },
-    iconImgPath: '#',
-  },
-  // {
-  //   name: 'pink button',
-  //   // xBounds: [127, 161],
-  //   // yBounds: [697, 734],
-  //   xBounds: { lowerPercent: 10, upperPercent: 13 },
-  //   yBounds: { lowerPercent: 86, upperPercent: 90 },
-  //   iconImgPath: '#',
-  // },
-];
+const getItems = () => items;
+const createItemsArray = (width, height, paramsArraysArray) => {
+  const itemsArray = [];
+  paramsArraysArray.forEach((arg) => {
+    itemsArray.push(
+      Item(width, height, [arg[0], arg[1]], [arg[2], arg[3]], arg[4])
+    );
+  });
+  return itemsArray;
+};
+const Item = (width, height, xBoundsArray, yBoundsArray, name) => {
+  const newItem = { name, xBounds: {}, yBounds: {} };
+  newItem.xBounds.lowerPercent = toPercent(xBoundsArray[0], width);
+  newItem.xBounds.upperPercent = toPercent(xBoundsArray[1], width);
+  newItem.yBounds.lowerPercent = toPercent(yBoundsArray[0], height);
+  newItem.yBounds.upperPercent = toPercent(yBoundsArray[1], height);
+  return newItem;
+};
+const toPercent = (itemLength, imgLength) => {
+  return Math.round((itemLength * 100) / imgLength);
+};
+// img width: 1225
+// img height 812
+const items = createItemsArray(1225, 812, [
+  [246, 354, 134, 242, 'octopus'],
+  [1115, 1185, 396, 440, 'sideways "n"'],
+  [127, 161, 697, 734, 'pink button'],
+]);
+items.push(
+  ...createItemsArray(1429, 946, [
+    [478, 558, 339, 433, 'white "m"'],
+    [421, 465, 445, 498, 'shamrock pendant'],
+    [1250, 1369, 720, 839, 'surprised bear'],
+    [995, 1198, 31, 130, 'stegosaurus'],
+    [1027, 1123, 528, 593, 'rubber band'],
+    [1236, 1284, 853, 894, '"G 51" token'],
+    [177, 226, 118, 167, 'nickel'],
+  ])
+);
 // const submitUser = async (gameId, name, time) => {
 //   // upload name and time to this game's leaderboard
 //   return Promise.resolve('fjoewa42402940');

@@ -6,15 +6,17 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- swap higher res version of game image
-- add more items
+- adjust font and grid column size for header on mobile
+- use ::after to make landscape mobile header items list instead say "tap somewhere to see list of items"
 
 #### TODO LATER
 
 ##### Features
 
+- write function to add items to firebase
 - add another picture
 - add pictures to Firebase cloud storage
+- add ability to dismiss leaderboard
 
 ##### Behavior
 
@@ -30,6 +32,12 @@ Scour the images and see how fast you can find all the listed objects, then subm
 - add credit
 
 #### DONE
+
+_0.4.6_
+
+- swap higher res version of game image
+- add more items to game1
+- create functions for easier item creation
 
 _0.4.5_
 
