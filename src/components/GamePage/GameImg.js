@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './GameImg.css';
 import * as Controller from '../../Controller';
+import { getImage } from '../../FirebaseController';
 
 const GameImg = (props) => {
   const { gameId, gameItems, changeItemToFound, playerTime, updatePlayerTime } =
@@ -113,12 +114,6 @@ const GameImg = (props) => {
     }
     return <></>;
   };
-
-  // DATABASE FUNCS START
-  const getImage = (gameId) => {
-    return <img className="gameImg" src={require('../../images/game1.jpg')} />;
-  };
-  // DATABASE FUNCS END
 
   return (
     <div className="gameImg-container">

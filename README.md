@@ -6,32 +6,35 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- adjust font and grid column size for header on mobile
-- use ::after to make landscape mobile header items list instead say "tap somewhere to see list of items"
+- add another picture
 
 #### TODO LATER
 
 ##### Features
 
 - write function to add items to firebase
-- add another picture
-- add pictures to Firebase cloud storage
+- add pictures to firebase cloud storage
+- replace getImage with version that fetches image from firebase
 - add ability to dismiss leaderboard
 
 ##### Behavior
 
-- make sure that longer lists display selection dropdown in the correct spot
 - ? adjust getDropdownCoords() so dropdownWidth can be variable
+  - might not be possible as DOM element would have to render before it could calculate this; is there a way to invisibly render DOM element then change it before display?
 - ? add Start pop-up so you can choose when to start the timer
 
 ##### Style
 
-- figure out how to get rid of green line after image
 - choose fonts
 - style homescreen
 - add credit
 
 #### DONE
+
+_0.4.7_
+
+- adjust font and grid column size for header on mobile
+- remove green line under game image
 
 _0.4.6_
 

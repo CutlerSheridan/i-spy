@@ -113,6 +113,9 @@ items.push(
 //     },
 //   ]);
 // };
+const getImage = (gameId) => {
+  return <img className="gameImg" src={require(`./images/${gameId}.jpg`)} />;
+};
 // MOCKS FOR TESTING END
 
-export { getItems, submitUser, getLeaderboard };
+export { getItems, submitUser, getLeaderboard, getImage };

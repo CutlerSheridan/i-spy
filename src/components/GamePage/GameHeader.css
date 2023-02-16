@@ -4,15 +4,26 @@
   top: 0;
   min-height: 7rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  font-size: 1.6rem;
   background: var(--clr-1);
   color: var(--clr-2);
   box-shadow: 0 0 1rem 0.5rem var(--clr-1);
   z-index: 2;
 }
+@media only screen and (min-width: 800px) {
+  .gameHeader-container {
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 2rem;
+  }
+}
 .gameHeader-link,
 .gameHeader-timer {
   margin: auto;
+}
+.gameHeader-link {
+  white-space: nowrap;
 }
 .gameHeader-itemsContainer {
   display: flex;
@@ -32,6 +43,12 @@
   text-decoration: line-through;
 }
 .gameHeader-timer {
-  width: 11rem;
-  white-space: pre;
+  text-align: center;
+  white-space: pre-wrap;
+}
+@media only screen and (min-width: 800px) {
+  .gameHeader-timer {
+    text-align: left;
+    width: 11rem;
+  }
 }
