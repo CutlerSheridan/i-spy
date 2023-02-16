@@ -54,7 +54,12 @@ const getLeaderboard = async (gameId) => {
 };
 
 // MOCKS FOR TESTING START
-const getItems = () => items;
+const getItems = (gameId) => {
+  if (gameId === 'game1') {
+    return items1;
+  }
+  return items2;
+};
 const createItemsArray = (width, height, paramsArraysArray) => {
   const itemsArray = [];
   paramsArraysArray.forEach((arg) => {
@@ -77,12 +82,12 @@ const toPercent = (itemLength, imgLength) => {
 };
 // img width: 1225
 // img height 812
-const items = createItemsArray(1225, 812, [
+const items1 = createItemsArray(1225, 812, [
   [246, 354, 134, 242, 'octopus'],
   [1115, 1185, 396, 440, 'sideways "n"'],
   [127, 161, 697, 734, 'pink button'],
 ]);
-items.push(
+items1.push(
   ...createItemsArray(1429, 946, [
     [478, 558, 339, 433, 'white "m"'],
     [421, 465, 445, 498, 'shamrock pendant'],
@@ -93,6 +98,18 @@ items.push(
     [177, 226, 118, 167, 'nickel'],
   ])
 );
+const items2 = createItemsArray(1429, 843, [
+  [899, 947, 89, 169, 'watch'],
+  [1307, 1359, 307, 373, 'white knight'],
+  [462, 555, 656, 682, 'magnet'],
+  [601, 629, 466, 545, 'whistle'],
+  [91, 162, 337, 513, 'ruler'],
+  [1327, 1370, 395, 470, 'whale'],
+  [186, 252, 592, 729, 'dew drops'],
+  [494, 546, 26, 61, '"BOO HOO"'],
+  [133, 224, 130, 160, 'spool on a nail'],
+  [121, 202, 720, 769, 'metal shoe'],
+]);
 // const submitUser = async (gameId, name, time) => {
 //   // upload name and time to this game's leaderboard
 //   return Promise.resolve('fjoewa42402940');

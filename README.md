@@ -6,7 +6,7 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- add another picture
+- style homescreen
 
 #### TODO LATER
 
@@ -26,10 +26,14 @@ Scour the images and see how fast you can find all the listed objects, then subm
 ##### Style
 
 - choose fonts
-- style homescreen
 - add credit
 
 #### DONE
+
+_0.5.0_
+
+- add another picture
+- choose items for new picture
 
 _0.4.7_
 

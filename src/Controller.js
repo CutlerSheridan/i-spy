@@ -19,9 +19,9 @@ const getDropdownCoords = (e, selectionWidth) => {
   if (xCoord + dropdownWidth >= imgWidth) {
     xCoord = pageCoords.x - selectionWidth / 2 - dropdownWidth;
   }
-  // console.log('image spot clicked', getImageCoords(e));
-  // console.log('img width', imgWidth);
-  // console.log('img height', e.target.height);
+  console.log('image spot clicked', getImageCoords(e));
+  console.log('img width', imgWidth);
+  console.log('img height', e.target.height);
   return {
     x: xCoord,
     y: pageCoords.y - selectionWidth / 2,
