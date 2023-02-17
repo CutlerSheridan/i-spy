@@ -6,15 +6,15 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- style homescreen
+- add pictures to firebase cloud storage
+- replace getImage with version that fetches image from firebase
 
 #### TODO LATER
 
 ##### Features
 
 - write function to add items to firebase
-- add pictures to firebase cloud storage
-- replace getImage with version that fetches image from firebase
+
 - add ability to dismiss leaderboard
 
 ##### Behavior
@@ -29,6 +29,10 @@ Scour the images and see how fast you can find all the listed objects, then subm
 - add credit
 
 #### DONE
+
+_0.5.1_
+
+- style homescreen
 
 _0.5.0_
 
