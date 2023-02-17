@@ -6,16 +6,12 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- add pictures to firebase cloud storage
-- replace getImage with version that fetches image from firebase
+- add ability to dismiss leaderboard
+- write function to add items to firebase
 
 #### TODO LATER
 
 ##### Features
-
-- write function to add items to firebase
-
-- add ability to dismiss leaderboard
 
 ##### Behavior
 
@@ -29,6 +25,11 @@ Scour the images and see how fast you can find all the listed objects, then subm
 - add credit
 
 #### DONE
+
+_0.5.2_
+
+- add pictures to firebase cloud storage
+- replace getImage with version that fetches image from firebase
 
 _0.5.1_
 

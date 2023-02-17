@@ -8,8 +8,9 @@ import {
   query,
   orderBy,
 } from 'firebase/firestore/lite';
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
-// Your web app's Firebase configuration
+// web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyDHjS8hQa23D7aNQxm6kIzkAtVkCZcqMfc',
   authDomain: 'i-spy-9681f.firebaseapp.com',
@@ -21,6 +22,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage();
+const imagesRef = ref(storage, 'images');
 
 // const getItems = async (gameId) => {
 //   const querySnapshot = await getDocs(collection(db, 'games', gameId, 'items'));
@@ -28,6 +31,10 @@ const db = getFirestore(app);
 //   querySnapshot.forEach((doc) => items.push(doc.data()));
 //   return items;
 // };
+const getImage = async (gameId) => {
+  const imageUrl = await getDownloadURL(ref(imagesRef, `${gameId}.jpg`));
+  return imageUrl;
+};
 const submitUser = async (gameId, name, time) => {
   const docRef = await addDoc(collection(db, 'games', gameId, 'leaderboard'), {
     name,
@@ -130,9 +137,9 @@ const items2 = createItemsArray(1429, 843, [
 //     },
 //   ]);
 // };
-const getImage = (gameId) => {
-  return <img className="gameImg" src={require(`./images/${gameId}.jpg`)} />;
-};
+// const getImage = (gameId) => {
+//   return `./images/${gameId}.jpg`;
+// };
 // MOCKS FOR TESTING END
 
 export { getItems, submitUser, getLeaderboard, getImage };

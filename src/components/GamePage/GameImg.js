@@ -8,6 +8,7 @@ const GameImg = (props) => {
     props;
   const [imageDimensions, setImageDimensions] = useState({});
   const [spotGuessedOnImage, setSpotGuessedOnImage] = useState({});
+  const [imagePath, setImagePath] = useState('#');
   useEffect(() => {
     const imageElement = document.querySelector('.gameImg');
     imageElement.addEventListener('click', imageClickListener);
@@ -15,7 +16,7 @@ const GameImg = (props) => {
       width: imageElement.width,
       height: imageElement.height,
     });
-  }, []);
+  }, [imagePath]);
 
   const imageClickListener = (e) => {
     setImageDimensions({ width: e.target.width, height: e.target.height });
@@ -90,8 +91,13 @@ const GameImg = (props) => {
   };
 
   const createImageElement = (gameId) => {
-    const imageElement = getImage(gameId);
-    return imageElement;
+    getImage(gameId).then((dbImagePath) => {
+      setImagePath(dbImagePath);
+    });
+    if (imagePath === '#') {
+      return <p className="gameImg gameImg-loading">...Loading image...</p>;
+    }
+    return <img className="gameImg" src={imagePath} />;
   };
   const createSelectionDropdown = () => {
     if (gameItems.some((x) => !x.isFound)) {

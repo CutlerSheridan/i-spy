@@ -2,6 +2,12 @@
   position: relative;
   width: 100%;
 }
+.gameImg-loading {
+  margin: 18% 0;
+  text-align: center;
+  color: var(--clr-2);
+  /* background: pink; */
+}
 .gameImg-selection {
   --length: 5rem;
   position: absolute;
