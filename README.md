@@ -21,6 +21,10 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### DONE
 
+_1.0.0.1_
+
+- add Router basename
+
 _1.0.0_
 
 - add all items to firebase

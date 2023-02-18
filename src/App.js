@@ -5,7 +5,7 @@ import GamePage from './components/GamePage/GamePage';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/i-spy">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/game/:gameId" element={<GamePage />} />
