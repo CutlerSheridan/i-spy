@@ -2,10 +2,6 @@ import './WinScreen.css';
 import { useState } from 'react';
 import { submitUser, getLeaderboard } from '../../FirebaseController';
 
-// DATABASE FUNCS START
-
-// DATABASE FUNCS END
-
 const WinScreen = (props) => {
   const { gameId, playerTime } = props;
   const [name, setName] = useState('');
@@ -56,7 +52,6 @@ const WinScreen = (props) => {
   const handleNameSubmission = (e) => {
     e.preventDefault();
     setNameIsSubmitted(0);
-    console.log('start of handle submission');
     let userRef;
     submitUser(gameId, name, playerTime)
       .then((result) => {
@@ -68,7 +63,6 @@ const WinScreen = (props) => {
         setRank(result.find((x) => x.id === userRef).rank);
         setLeaderboard(result);
         setNameIsSubmitted(1);
-        console.log('end of handle name submission');
       });
   };
   const createLoadingScreen = () => {

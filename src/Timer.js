@@ -27,7 +27,6 @@ const Timer = () => {
     }
   };
   const getTime = () => {
-    console.log((overallTime + _getTimeElapsedSinceStart()) / 1000);
     if (isRunning) {
       return Math.round((overallTime + _getTimeElapsedSinceStart()) / 1000);
     }

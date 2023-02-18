@@ -52,7 +52,8 @@
   align-items: center;
 }
 .name-container > h2 {
-  font-size: 3.5rem;
+  font-size: 5rem;
+  font-family: 'Barriecito', cursive;
 }
 .name-container > h3 {
   font-size: 2.5rem;
@@ -64,7 +65,7 @@
 }
 @media only screen and (min-width: 800px) {
   .name-container > h2 {
-    font-size: 7rem;
+    font-size: 9rem;
   }
   .name-container > h3 {
     font-size: 4rem;
@@ -86,6 +87,7 @@
   background: var(--clr-2);
   color: var(--clr-1);
   cursor: pointer;
+  font-family: 'Barriecito', cursive;
 }
 .name-submit:active {
   background: var(--clr-3);
@@ -132,10 +134,11 @@
   padding-bottom: 1rem;
   position: sticky;
   top: 0;
-  font-size: 2.3rem;
+  font-size: 2.8rem;
   text-align: center;
   background: var(--clr-1);
   box-shadow: 0 0 0.7rem 0.3rem var(--clr-1);
+  font-family: 'Barriecito', cursive;
 }
 .leaderboard-innerContainer
   .leaderboard-entryGroup:nth-child(odd):not(.leaderboard-currentPlayer) {
@@ -150,7 +153,7 @@
 }
 @media only screen and (min-width: 800px) {
   .leaderboard-heading {
-    font-size: 3rem;
+    font-size: 4rem;
   }
   .leaderboard-entryGroup {
     margin: 0 25%;

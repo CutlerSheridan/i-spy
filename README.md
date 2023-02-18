@@ -6,25 +6,27 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
-- add ability to dismiss leaderboard
-- write function to add items to firebase
-
 #### TODO LATER
 
 ##### Features
 
 ##### Behavior
 
+- add ability to dismiss leaderboard
 - ? adjust getDropdownCoords() so dropdownWidth can be variable
   - might not be possible as DOM element would have to render before it could calculate this; is there a way to invisibly render DOM element then change it before display?
 - ? add Start pop-up so you can choose when to start the timer
 
 ##### Style
 
-- choose fonts
-- add credit
-
 #### DONE
+
+_1.0.0_
+
+- add all items to firebase
+- clean up console.logs
+- add credit
+- choose fonts
 
 _0.5.2_
 

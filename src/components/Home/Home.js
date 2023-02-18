@@ -4,7 +4,13 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="home-container">
-      <h1>I Spy</h1>
+      <div className="home-splashContainer">
+        <img
+          className="home-splash"
+          src="https://upload.wikimedia.org/wikipedia/commons/2/2f/COVID19_illustrationPack_035.png"
+        />
+      </div>
+      <h1>I Spy!</h1>
       <p className="home-intro">
         Choose a picture, then try to find all the hidden objects. When you're
         done, submit your time and see how you rank on the leaderboard!
@@ -12,6 +18,12 @@ const Home = () => {
       <div className="home-gameLinks">
         <Link to="/game/game1">Objects in Void</Link>
         <Link to="/game/game2">Secret Laboratory</Link>
+      </div>
+      <div className="credit-container">
+        <div className="credit">Made by Cutler Sheridan.</div>
+        <div className="credit">
+          See more <a href="cutlersheridan.github.io/portfolio">here</a>.
+        </div>
       </div>
     </div>
   );

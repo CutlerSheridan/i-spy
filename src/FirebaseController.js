@@ -25,12 +25,12 @@ const db = getFirestore(app);
 const storage = getStorage();
 const imagesRef = ref(storage, 'images');
 
-// const getItems = async (gameId) => {
-//   const querySnapshot = await getDocs(collection(db, 'games', gameId, 'items'));
-//   const items = [];
-//   querySnapshot.forEach((doc) => items.push(doc.data()));
-//   return items;
-// };
+const getItems = async (gameId) => {
+  const querySnapshot = await getDocs(collection(db, 'games', gameId, 'items'));
+  const items = [];
+  querySnapshot.forEach((doc) => items.push(doc.data()));
+  return items;
+};
 const getImage = async (gameId) => {
   const imageUrl = await getDownloadURL(ref(imagesRef, `${gameId}.jpg`));
   return imageUrl;
@@ -61,12 +61,37 @@ const getLeaderboard = async (gameId) => {
 };
 
 // MOCKS FOR TESTING START
-const getItems = (gameId) => {
-  if (gameId === 'game1') {
-    return items1;
-  }
-  return items2;
-};
+// const getItems = (gameId) => {
+//   if (gameId === 'game1') {
+//     return items1;
+//   }
+//   return items2;
+// };
+// const submitUser = async (gameId, name, time) => {
+//   // upload name and time to this game's leaderboard
+//   return Promise.resolve('fjoewa42402940');
+// };
+// const getLeaderboard = async (gameId) => {
+//   return Promise.resolve([
+//     {
+//       name: 'cutler',
+//       time: '0:05',
+//       id: 'fjoewa42402940',
+//       rank: 1,
+//     },
+//     {
+//       name: 'tyler',
+//       time: '0:10',
+//       id: 'o2424jfw090gJ',
+//       rank: 2,
+//     },
+//   ]);
+// };
+// const getImage = (gameId) => {
+//   return `./images/${gameId}.jpg`;
+// };
+// MOCKS FOR TESTING END
+
 const createItemsArray = (width, height, paramsArraysArray) => {
   const itemsArray = [];
   paramsArraysArray.forEach((arg) => {
@@ -117,29 +142,5 @@ const items2 = createItemsArray(1429, 843, [
   [133, 224, 130, 160, 'spool on a nail'],
   [121, 202, 720, 769, 'metal shoe'],
 ]);
-// const submitUser = async (gameId, name, time) => {
-//   // upload name and time to this game's leaderboard
-//   return Promise.resolve('fjoewa42402940');
-// };
-// const getLeaderboard = async (gameId) => {
-//   return Promise.resolve([
-//     {
-//       name: 'cutler',
-//       time: '0:05',
-//       id: 'fjoewa42402940',
-//       rank: 1,
-//     },
-//     {
-//       name: 'tyler',
-//       time: '0:10',
-//       id: 'o2424jfw090gJ',
-//       rank: 2,
-//     },
-//   ]);
-// };
-// const getImage = (gameId) => {
-//   return `./images/${gameId}.jpg`;
-// };
-// MOCKS FOR TESTING END
 
 export { getItems, submitUser, getLeaderboard, getImage };

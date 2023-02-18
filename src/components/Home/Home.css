@@ -3,26 +3,48 @@
   /* background: pink; */
   color: var(--clr-2);
 }
+.home-splashContainer {
+  margin: auto;
+  height: 27rem;
+  width: 30rem;
+  /* background: pink; */
+}
+.home-splash {
+  margin: 5rem 0 2rem;
+  /* width: 30rem; */
+  width: 100%;
+  transform: scaleX(-1);
+}
 h1 {
-  margin: 3rem;
-  font-size: 5rem;
+  margin: 1rem 0 2rem;
+  font-size: 7rem;
+  font-family: 'Barriecito', Arial, Helvetica, sans-serif;
 }
 .home-intro {
-  margin: 3rem auto;
+  margin: 1.5rem auto;
+  padding: 0.3rem;
   max-width: 45ch;
+  font-family: 'Life Savers', cursive;
 }
 .home-gameLinks {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1rem;
+  font-size: 2.2rem;
+  font-family: 'Barriecito', cursive;
 }
 @media only screen and (min-width: 600px) {
   .home-gameLinks {
     display: block;
+    font-size: 2.6rem;
   }
 }
 .home-gameLinks > a {
   margin: 0 1rem;
-  font-size: 2.6rem;
+  /* font-size: 2.6rem; */
+}
+.credit-container {
+  margin: 5rem 0;
+  font-size: 1.6rem;
 }
