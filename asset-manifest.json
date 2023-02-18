@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/i-spy/static/css/main.66f5bb5f.css",
+    "main.js": "/i-spy/static/js/main.13096c23.js",
+    "index.html": "/i-spy/index.html",
+    "main.66f5bb5f.css.map": "/i-spy/static/css/main.66f5bb5f.css.map",
+    "main.13096c23.js.map": "/i-spy/static/js/main.13096c23.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.66f5bb5f.css",
+    "static/js/main.13096c23.js"
+  ]
+}
