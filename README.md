@@ -6,6 +6,8 @@ Scour the images and see how fast you can find all the listed objects, then subm
 
 #### TODO NEXT
 
+- refactor leaderboard so people who take, for example, 15 minutes go after 1-14 minutes instead of after 1 minute
+
 #### TODO LATER
 
 ##### Features
@@ -20,6 +22,16 @@ Scour the images and see how fast you can find all the listed objects, then subm
 ##### Style
 
 #### DONE
+
+_1.0.1_
+
+- change link underline thickness
+- change home page game buttons
+- bold links on hover
+- fix portfolio link
+- make home page background gradient
+- change home page image
+- adjust positioning of home page image
 
 _1.0.0.1_
 

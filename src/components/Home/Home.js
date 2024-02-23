@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Home.css';
+import magnifyingGlass from '../../images/magnifying-glass.png';
 
 const Home = () => {
   return (
@@ -7,7 +8,8 @@ const Home = () => {
       <div className="home-splashContainer">
         <img
           className="home-splash"
-          src="https://upload.wikimedia.org/wikipedia/commons/2/2f/COVID19_illustrationPack_035.png"
+          // src="https://upload.wikimedia.org/wikipedia/commons/2/2f/COVID19_illustrationPack_035.png"
+          src={magnifyingGlass}
         />
       </div>
       <h1>I Spy!</h1>
@@ -22,7 +24,8 @@ const Home = () => {
       <div className="credit-container">
         <div className="credit">Made by Cutler Sheridan.</div>
         <div className="credit">
-          See more <a href="cutlersheridan.github.io/portfolio">here</a>.
+          See more <a href="https://cutlersheridan.github.io/portfolio">here</a>
+          .
         </div>
       </div>
     </div>

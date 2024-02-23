@@ -6,6 +6,7 @@
   --clr-3-light: lightgrey;
   font-size: 62.5%;
   background: var(--clr-1);
+  background-image: linear-gradient(to bottom, var(--clr-1), black);
 }
 * {
   margin: 0;
@@ -15,6 +16,7 @@
   font-family: inherit;
 }
 body {
+  min-height: 100vh;
   height: 100%;
   width: 100%;
   font-size: 2rem;
@@ -25,5 +27,10 @@ body {
 a {
   color: var(--clr-2);
   text-decoration: none;
-  border-bottom: 2px solid var(--clr-2);
+  border-bottom: 1px solid var(--clr-2);
+}
+@media only screen and (hover: hover) {
+  a:hover {
+    font-weight: bold;
+  }
 }
