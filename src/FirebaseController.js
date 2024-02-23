@@ -57,6 +57,13 @@ const getLeaderboard = async (gameId) => {
     }
     leaderboard.push({ ...scoreObj, id: x.id, rank });
   });
+  leaderboard.sort((x, y) => {
+    const xTimeColonIndex = x.time.indexOf(':');
+    const yTimeColonIndex = y.time.indexOf(':');
+    const xMinutesNumer = +x.time.slice(0, xTimeColonIndex);
+    const yMinutesNumber = +y.time.slice(0, yTimeColonIndex);
+    return xMinutesNumer - yMinutesNumber;
+  });
   return leaderboard;
 };
 
